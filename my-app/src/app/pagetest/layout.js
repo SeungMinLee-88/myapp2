@@ -1,14 +1,9 @@
 
-'use client'
-import { useRouter } from 'next/navigation'
-
-export default function DashboardLayout({
+export default function PagetestLayout({
   children, // 페이지 또는 중첩 레이아웃이 될 것임
 }) {
    
-const router = useRouter()
- 
-/* router.push('/dashboard2', { scroll: false }) */
+
   return (
     <html lang="en">
       <body>
