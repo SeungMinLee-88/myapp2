@@ -59,7 +59,9 @@ export default function Page() {
         <br></br>
         <br></br>
         <br></br>
-        <Link href="/pagetest">PAGETEST</Link>
+        <Link href="/pagetest" scroll={false}>fixscroll PAGETEST</Link>
+        <br></br>
+        <Link href="/pagetest">not fixPAGETEST</Link>
       </div>
   )
   }

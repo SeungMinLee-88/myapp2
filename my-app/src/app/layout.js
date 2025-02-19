@@ -1,5 +1,7 @@
 export default function RootLayout({ children }) {
   console.log("children: " + children);
+  console.log("children.id: " + JSON.stringify(children));
+
   return (
     <html lang="en">
       <body>
