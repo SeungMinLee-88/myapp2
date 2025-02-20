@@ -1,22 +1,22 @@
-import { redirect } from 'next/navigation'
-async function fetchTeam(id) {
-  const res = await fetch('https://...')
-  if (!res.ok) return undefined
-  return res.json()
+'use client'
+ 
+import { useActionState } from 'react'
+import { createUser } from './actions'
+ 
+const initialState = {
+  message: '',
 }
-export default function PagetestLayout({
-  children, // 페이지 또는 중첩 레이아웃이 될 것임
-}) {
-  /*   const team = await fetchTeam(params.id)
-  if (!team) {
-    redirect('/login')
-  } */
 
+export default function RootLayout({ children }) {
+  const [state, formAction] = useActionState(createUser, initialState)
+ 
   return (
-    <html lang="en">
-      <body>
-        <main>{children}</main>
-      </body>
-    </html>
+    <form action={formAction}>
+      <label htmlFor="email">Email</label>
+      <input type="text" id="email" name="email" required />
+      {/* ... */}
+      <p aria-live="polite">{state?.message}</p>
+      <button>Sign up</button>
+    </form>
   )
 }

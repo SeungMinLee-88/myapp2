@@ -1,4 +1,20 @@
-// `app/dashboard/page.js`는 `/dashboard` URL의 UI입니다.
+'use client'
+ 
+import { usePathname } from 'next/navigation'
+
 export default function Page() {
-    return <h1>Hello, servercomp Page!!!</h1>
+  const pathname = usePathname()
+ 
+  function switchLocale(locale) {
+    // 예: '/en/about' 또는 '/fr/contact'
+    const newPath = `/${locale}${pathname}`
+    window.history.replaceState(null, '', newPath)
+  }
+ 
+  return (
+    <>
+      <button onClick={() => switchLocale('en')}>English</button>
+      <button onClick={() => switchLocale('fr')}>French</button>
+    </>
+  )
   }
