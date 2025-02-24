@@ -10,6 +10,7 @@ const initialState = {
 export default function Page() {
     const [state, formAction] = useActionState(createUser, initialState)
  
+    console.log("state?.message : " + state?.message);
     return (
       <form action={formAction}>
         <label htmlFor="email">Email</label>

@@ -3,12 +3,19 @@
 import { redirect } from 'next/navigation'
  
 export async function createUser(prevState: any, formData: FormData) {
-  const res = await fetch('https://...')
-  const json = await res.json()
+  console.log("call createUser");
+  /* const res = await fetch('https://...')
+  const json = await res.json() */
  
-  if (!res.ok) {
+  const res = {"ok":"false"};
+  
+  console.log("res.ok : " + res.ok);
+  /* if (!res.ok) { */
+  if (res.ok == "false") {
     return { message: 'Please enter a valid email' }
   }
- 
-  redirect('/dashboard')
+  else if(res.ok) {
+    return { message: 'Email chk ok' }
+  }
+  //redirect('/dashboard')
 }
